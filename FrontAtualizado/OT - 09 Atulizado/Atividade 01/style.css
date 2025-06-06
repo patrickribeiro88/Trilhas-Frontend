@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  text-align: center;
+  padding: 20px;
+  color: #333;
+}
+.galeria {
+  display: grid;
+   /* Cria colunas que se ajustam automaticamente: 
+     - mínimo 200px
+     - máximo: dividir o espaço igualmente (1fr) */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  grid-auto-rows: 10px;
+  gap: 10px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  grid-auto-flow: dense; /* Tenta preencher os espaços vazios de forma compacta */
+}
+.item-galeria {
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* Esconde o conteúdo que ultrapassar a borda */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.item-galeria img {
+  width: 100%;
+  height: auto;
+  display: block;/* Remove espaços extras abaixo das imagens */
+  transition: transform 0.3s ease;/* Transição suave para o efeito de zoom */
+}
+/* Efeito ao passar o mouse: leve zoom */
+.item-galeria:hover img {
+  transform: scale(1.05);
+}
+
+/* Tamanhos verticais */
+/* Itens mais altos: ocupa 30 linhas da grid */
+.alto {
+  grid-row-end: span 30;
+}
+
+.medio {
+  grid-row-end: span 20;
+}
+
+.baixo {
+  grid-row-end: span 15;
+}
+
+/* Horizontal ocupa 2 colunas */
+.horizontal {
+  grid-column: span 2;
+}
