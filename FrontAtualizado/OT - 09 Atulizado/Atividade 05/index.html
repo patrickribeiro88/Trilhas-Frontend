@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App de Música</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="layout">
+
+        <!-- Menu Lateral -->
+        <aside class="sidebar">
+            <h2>MúsicaApp</h2>
+            <nav>
+                <ul>
+                    <li>Início</li>
+                    <li>Artistas</li>
+                    <li>Álbuns</li>
+                    <li>Músicas</li>
+                    <li>Playlists</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="conteudo">
+            <!-- Barra Superior -->
+            <header class="barra-topo">
+                <input type="text" placeholder="Buscar músicas, artistas..." class="campo-busca" />
+            </header>
+
+            <!-- Seções -->
+            <section class="grade">
+                <h3>Artistas</h3>
+                <div class="cards">
+                    <div class="card">
+                        <img src="img/artista1.jpg" alt="Artista 1" />
+                        <p>Artista 1</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/artista2.jpg" alt="Artista 2" />
+                        <p>Artista 2</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/artista3.jpg" alt="Artista 3" />
+                        <p>Artista 3</p>
+                    </div>
+                </div>
+
+                <h3>Álbuns</h3>
+                <div class="cards">
+                    <div class="card">
+                        <img src="img/album1.jpg" alt="Álbum 1" />
+                        <p>Álbum 1</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/album2.jpg" alt="Álbum 2" />
+                        <p>Álbum 2</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/album3.jpg" alt="Álbum 3" />
+                        <p>Álbum 3</p>
+                    </div>
+                </div>
+
+                <h3>Playlists</h3>
+                <div class="cards">
+                    <div class="card">
+                        <img src="img/playlist1.jpg" alt="Playlist 1" />
+                        <p>Playlist 1</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/playlist2.jpg" alt="Playlist 2" />
+                        <p>Playlist 2</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/playlist3.jpg" alt="Playlist 3" />
+                        <p>Playlist 3</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Player Fixo -->
+        <footer class="player">
+            <div class="info-musica">Tocando agora: Música X - Artista Y</div>
+            <div class="controles">
+                <button>⏮</button>
+                <button>⏯</button>
+                <button>⏭</button>
+                <input type="range" min="0" max="100" value="50" />
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
