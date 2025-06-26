@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Login / Cadastro*/
+.login-container {
+    min-height: 100vh;
+}
+
+.login-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #a8d0e6, #c4b5fd);
+}
+
+.logo {
+    font-weight: 700px;
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+}
+
+.login-column h1 {
+    font-weight: 300;
+    font-size: 3.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.login-column .form-control {
+    border-radius: 0;
+    border: 1px solid #343a40;
+    padding: 1.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.login-column .btn {
+    border-radius: 0;
+    padding: 0.75rem;
+    font-weight: 500;
+    width: 100%;
+}
+
+.btn-light {
+    color: #000;
+}
+
+a.text-light:hover {
+    color: #c4b5fd !important;
+}
+
+
+/*Menu Principal*/
+.menu-body {
+    background: linear-gradient(135deg, #d3e7f2, #e0d8ff);
+    color: #212529;
+}
+
+.menu-header {
+    padding: 1rem 1.5rem;
+    background-color: #000;
+    color: #fff;
+}
+
+.menu-header .menu-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.header-icons .icon {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.menu-card {
+    background-color: #c5e0f0;
+    border: 1px solid #000;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 180px; /* Altura fixa para os cards */
+}
+
+.menu-card-top {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.menu-card-top i {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+}
+
+.menu-card-top span {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.menu-card-bottom {
+    background-color: #000;
+    padding: 0.75rem 1.5rem;
+    text-align: right;
+}
+
+.menu-card-bottom .btn {
+    border-radius: 0;
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+}
