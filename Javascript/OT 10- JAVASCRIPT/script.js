@@ -1,6 +1,4 @@
-/*1. Criar uma Classe Animal: Crie uma classe Animal com um construtor
-que recebe o nome e o som que o animal faz. Adicione um método
-falar que imprime o som do animal.*/
+/*1. Criar uma Classe Animal: Crie uma classe Animal com um construtor que recebe o nome e o som que o animal faz. Adicione um método falar que imprime o som do animal.*/
 
 class Animal{
     constructor(nome,som){
@@ -8,7 +6,9 @@ class Animal{
         this.som = som;    
     }
     falar(){
-        console.log(`${this.nome} faz: ${this.som}`)
+        console.log(`${this.nome} faz: ${this.som}`);
 
     }
 }
+let cachorro = new Animal("Cachorro","Au Au"); //Instância (objeto) da classe para um cachorro.
+cachorro.falar(); //Chamando o método 'falar'
