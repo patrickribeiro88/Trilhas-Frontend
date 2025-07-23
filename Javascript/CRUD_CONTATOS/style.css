@@ -1,0 +1,13 @@
+/* Estilos gerais */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+}
+
+/* Centralizar botões no footer do modal */
+.modal-footer {
+  justify-content: space-between;
+}
