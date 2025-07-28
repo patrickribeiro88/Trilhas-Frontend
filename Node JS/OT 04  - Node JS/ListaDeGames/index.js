@@ -4,6 +4,7 @@ const express = require("express");
 //instancio o express e carregando a biblioteca do express dentro dessa const app
 const app = express();
 
+
 app.listen(3000, () => {
     console.log("Servidor rodando!");
 })
