@@ -29,7 +29,8 @@ app.get("/", (req, res) => {
     res.json(games);
 });
 
-app.post("/novogame", (req, res) => {
+app.put("/novogame/:index", (req, res) => {
+    const {index} = req.params;
     let title = req.body.title;
     let studio = req.body.studio;
     let price = req.body.price;
@@ -38,12 +39,9 @@ app.post("/novogame", (req, res) => {
     console.log(studio);
     console.log(price);
 
-    let newGame = { title,studio, price };
+    games [index] = { title,studio, price };
     
-    //para enviar estes dados para array agora utilizaremos o método push
-    games.push(newGame);
-
-    res.send("OK");
+    return res.json(games);
 });
 
 
