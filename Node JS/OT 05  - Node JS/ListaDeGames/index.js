@@ -4,8 +4,10 @@ const express = require("express");
 //instancio o express e carregando a biblioteca do express dentro dessa const app
 const app = express();
 
+app.use(express.json());
 
-app.listen(3000, () => {
+
+app.listen(3080, () => {
     console.log("Servidor rodando!");
 })
 
@@ -26,3 +28,23 @@ let games = [
 app.get("/", (req, res) => {
     res.json(games);
 });
+
+app.post("/novogame", (req, res) => {
+    let title = req.body.title;
+    let studio = req.body.studio;
+    let price = req.body.price;
+
+    console.log(title);
+    console.log(studio);
+    console.log(price);
+
+    let newGame = { title,studio, price };
+    
+    //para enviar estes dados para array agora utilizaremos o método push
+    games.push(newGame);
+
+    res.send("OK");
+});
+
+
+
