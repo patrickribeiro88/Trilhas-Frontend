@@ -29,12 +29,19 @@ app.get("/", (req, res) => {
     res.json(games);
 });
 
-app.delete("/:index", (req, res) => {
-    const {index} = req.params;
-    games.splice(index, 1);
-    return res.json({ message: "O jogo foi deletado" });
-});   
-   
+app.post("/novogame", (req, res) => {
+    let title = req.body.title;
+    let studio = req.body.studio;
+    let price = req.body.price;
 
+    console.log(title);
+    console.log(studio);
+    console.log(price);
 
+    let newGame = { title,studio, price };
+    
+    //para enviar estes dados para array agora utilizaremos o método push
+    games.push(newGame);
 
+    res.send("OK");
+});
