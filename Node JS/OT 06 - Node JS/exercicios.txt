@@ -5,6 +5,7 @@ Sua popularidade se deve a vários fatores:
 •	JavaScript em todo lugar: A possibilidade de usar JavaScript tanto no cliente (navegador) quanto no servidor simplifica o processo de desenvolvimento, permitindo que as equipes compartilhem código e conhecimento.
 •	Vasto ecossistema de pacotes (npm): O Node Package Manager (npm) é o maior registro de pacotes de software do mundo. Com milhões de bibliotecas e ferramentas disponíveis gratuitamente, os desenvolvedores podem acelerar o desenvolvimento de suas aplicações sem precisar "reinventar a roda".
 •	Ideal para Microserviços e APIs: A natureza leve e rápida do Node.js o torna uma escolha excelente para a construção de microserviços e APIs (Interfaces de Programação de Aplicações) que precisam lidar com um grande volume de requisições.
+
 2. Qual é a diferença entre o Node.js e outras tecnologias de servidor, como o Apache?
 A principal diferença reside na arquitetura e no modelo de tratamento de requisições.
 Característica	Node.js	Servidor Apache
@@ -13,6 +14,7 @@ Tratamento de Requisições	Não bloqueante (assíncrono). Uma única thread lid
 Desempenho	Altamente performático para operações de E/S intensivas e aplicações em tempo real.	Robusto e confiável para servir conteúdo estático, mas pode consumir mais memória sob alta concorrência.
 Uso de Memória	Geralmente consome menos memória, pois não cria threads para cada conexão.	O consumo de memória pode aumentar significativamente com o aumento do número de conexões simultâneas.
 Em suma, o Node.js se destaca em cenários com muitas conexões simultâneas e operações que não exigem uso intensivo da CPU, enquanto o Apache é uma solução tradicional e comprovada, especialmente eficaz para servir arquivos estáticos.
+
 3. Como você inicia um projeto Node.js usando o npm?
 Iniciar um projeto Node.js é um processo simples utilizando o npm. Siga estes passos:
 1.	Crie um diretório para o seu projeto:
@@ -33,6 +35,7 @@ Bash
 npm init -y
 
 Ao final do processo, um arquivo chamado package.json será criado no diretório do seu projeto. Este arquivo é fundamental, pois contém metadados sobre o projeto e gerencia suas dependências e scripts.
+
 4. O que é o Express.js e qual é o seu papel no desenvolvimento web com Node.js?
 O Express.js é um framework para aplicações web Node.js, minimalista e flexível. Ele não impõe uma estrutura rígida, mas fornece um conjunto robusto de recursos para o desenvolvimento de aplicações web e APIs.
 Seu papel é simplificar tarefas complexas do desenvolvimento web, como:
@@ -41,6 +44,7 @@ Seu papel é simplificar tarefas complexas do desenvolvimento web, como:
 •	Renderização de Views: Integra-se com motores de template (como Pug, EJS) para gerar HTML dinamicamente.
 •	Tratamento de Requisições e Respostas: Oferece uma API simples para manipular os objetos de requisição (req) e resposta (res).
 Essencialmente, o Express.js fornece a estrutura básica para construir aplicações web sobre o Node.js, permitindo que os desenvolvedores se concentrem na lógica de negócio da aplicação.
+
 5. Explique o conceito de middleware no contexto do Express.js.
 No Express.js, o middleware é uma função que tem acesso aos objetos de requisição (req), de resposta (res) e à próxima função de middleware no ciclo de requisição-resposta da aplicação, comumente denotada por uma variável chamada next.
 As funções de middleware podem executar as seguintes tarefas:
@@ -93,6 +97,7 @@ app.post('/usuarios', (req, res) => {
 app.listen(3000);
 
 Para aplicações maiores, o express.Router é usado para agrupar e modularizar as definições de rotas.
+
 7. O que é o middleware de análise de corpo (body-parser) e por que é útil em um aplicativo Express?
 O middleware de análise de corpo (conhecido historicamente como body-parser) é responsável por extrair a parte do corpo de um fluxo de requisição de entrada e expô-la no objeto req.body.
 Por que é útil? Quando um cliente envia dados para o servidor através de uma requisição POST ou PUT (por exemplo, a partir de um formulário HTML ou de uma requisição de API), esses dados são enviados no corpo da requisição. Por padrão, o Node.js não sabe como interpretar esses dados.
@@ -129,6 +134,7 @@ o	app.patch('/usuarios/:id', (req, res) => { /* Lógica para atualizar um campo 
 •	DELETE: Remove um recurso específico.
 o	app.delete('/usuarios/:id', (req, res) => { /* Lógica para deletar um usuário específico */ });
 Esses métodos são mapeados diretamente para funções no Express, tornando a criação de APIs RESTful intuitiva.
+
 9. Como você lida com erros em um aplicativo Express?
 O Express possui um manipulador de erros padrão. No entanto, para um controle mais robusto, você pode criar um middleware de tratamento de erros customizado.
 Um middleware de tratamento de erros é definido da mesma forma que outros middlewares, mas com quatro argumentos em vez de três: (err, req, res, next).
