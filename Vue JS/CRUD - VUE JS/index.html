@@ -22,6 +22,10 @@
             <button type="submit">{{ editIndex === -1 ? 'Adicionar' : 'Atualizar' }}</button> <!--Botão para adicionar o contato -->
         </form>
 
+        <div v-if="messageVisible" class="message">{{ messageText }}</div> <!--Mensagem de confirmação-->
+
+        <div class="counter">Total de contatos: {{ contactsCount }}</div> <!--Contador de contatos-->
+
         <table>
             <thead>
                 <tr>
@@ -55,12 +59,20 @@
                     email: ''
                 },
                 contacts: [], // Array para armazenar os contatos
-                editIndex: -1 // Índice do contato sendo editado, -1 significa que nenhum contato está sendo editado
+                editIndex: -1, // Índice do contato sendo editado, -1 significa que nenhum contato está sendo editado
+                messageVisible: false, // Controle de visibilidade da mensagem
+                messageText: '' // Texto da mensagem
+            },
+            computed: {
+                contactsCount() { // Computed property para contar o número de contatos
+                    return this.contacts.length; // Retorna o tamanho do array de contatos
+                }
             },
             methods: {
                 addContact() { //Método para adicionar um novo contato
                     if (this.currentContact.name && this.currentContact.phone && this.currentContact.email) { //Verifica se todos os campos estão preenchidos
                         this.contacts.push({ ...this.currentContact }); //Adiciona o novo contato ao array
+                        this.showMessage('Contato adicionado com sucesso!'); //Mostra a mensagem de sucesso
                         this.resetForm(); //Limpa os campos do formulário
                     }
                 },
@@ -70,6 +82,7 @@
                 },
                 updateContact() { //Método para atualizar o contato
                     this.$set(this.contacts, this.editIndex, this.currentContact); // Atualiza o contato no array
+                    this.showMessage('Contato atualizado com sucesso!'); // Mostra a mensagem de sucesso
                     this.resetForm(); // Limpa os campos após a atualização
                     this.editIndex = -1; // Reseta o índice de edição
                 },
@@ -78,7 +91,14 @@
                 },
                 resetForm() { //Método para limpar os campos do formulário
                     this.currentContact = { name: '', phone: '', email: '' }; //Reseta o objeto de novo contato
-                }
+                },
+                showMessage(text) {
+                    this.messageText = text;
+                    this.messageVisible = true;
+                    setTimeout(() => {
+                        this.messageVisible = false;
+                    }, 4000); // Mensagem visível por 4 segundos
+                },
             }
         })
     </script>
@@ -129,6 +149,21 @@
         }
         tr:hover {
             background-color: #f1f1f1;
+        }
+        .message {
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 10px;
+            margin: 20px 0;
+            text-align: center;
+            border: 1px solid #d6e9c6;
+            border-radius: 5px;
+        }
+        .counter {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+            font-weight: bold;
         }
     </style>
 </body>
