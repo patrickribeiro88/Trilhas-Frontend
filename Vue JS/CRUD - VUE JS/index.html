@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda com Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> <!-- Incluindo Vue.js -->
+</head>
+
+<body>
+    <div id="app"> <!--Div que será controlada pelo Vue-->
+        <h1>Cadastro de Agenda</h1>
+
+        <form @submit.prevent="editIndex === -1 ? addContact() : updateContact()"> <!--Condição para adicionar ou atualizar-->
+            <input type="text" v-model="currentContact.name" placeholder="Nome" required>
+            <!--Campo de entrada pra o nome -->
+            <input type="text" v-model="currentContact.phone" placeholder="Telefone" required>
+            <!--Campo de entrada para o telefone -->
+            <input type="text" v-model="currentContact.email" placeholder="Email" required>
+            <!--Campo de entrada para o email -->
+            <button type="submit">{{ editIndex === -1 ? 'Adicionar' : 'Atualizar' }}</button> <!--Botão para adicionar o contato -->
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(contact, index) in contacts" :key="index"> <!--Loop para exibir os contatos-->
+                    <td>{{ contact.name }}</td> <!--Exibe o nome do contato-->
+                    <td>{{ contact.phone }}</td> <!--Exibe o telefone do contato-->
+                    <td>{{ contact.email }}</td> <!--Exibe o email do contato-->
+                    <td>
+                        <button class="edit" @click="editContact(index)">Editar</button> <!--Botão para editar o contato-->
+                        <button class="delete" @click="deleteContact(index)">Deletar</button> <!--Botão para deletar o contato-->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app', //Monta a instancia do Vue no elemento com id "app"
+            data: {
+                currentContact: {  // Objeto para armazenar os dados do novo contato
+                    name: '',
+                    phone: '',
+                    email: ''
+                },
+                contacts: [], // Array para armazenar os contatos
+                editIndex: -1 // Índice do contato sendo editado, -1 significa que nenhum contato está sendo editado
+            },
+            methods: {
+                addContact() { //Método para adicionar um novo contato
+                    if (this.currentContact.name && this.currentContact.phone && this.currentContact.email) { //Verifica se todos os campos estão preenchidos
+                        this.contacts.push({ ...this.currentContact }); //Adiciona o novo contato ao array
+                        this.resetForm(); //Limpa os campos do formulário
+                    }
+                },
+                editContact(index) { //Método para preencher os campos de edição
+                    this.currentContact = { ...this.contacts[index] }; // Preenche os campos com os dados do contato selecionado
+                    this.editIndex = index; // Armazena o índice do contato a ser editado
+                },
+                updateContact() { //Método para atualizar o contato
+                    this.$set(this.contacts, this.editIndex, this.currentContact); // Atualiza o contato no array
+                    this.resetForm(); // Limpa os campos após a atualização
+                    this.editIndex = -1; // Reseta o índice de edição
+                },
+                deleteContact(index) { //Método para deletar um contato
+                    this.contacts.splice(index, 1); //Remove o contato do array pelo índice
+                },
+                resetForm() { //Método para limpar os campos do formulário
+                    this.currentContact = { name: '', phone: '', email: '' }; //Reseta o objeto de novo contato
+                }
+            }
+        })
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px; 
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .edit {
+            background-color: blue;
+            color: white;
+        }
+        .delete {
+            background-color: red;
+            color: white;
+        }
+        input {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #e7e7e7;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</body>
+
+</html>
