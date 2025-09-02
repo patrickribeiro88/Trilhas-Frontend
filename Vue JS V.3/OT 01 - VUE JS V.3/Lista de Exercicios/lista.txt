@@ -1,0 +1,67 @@
+Lista de exercícios:
+
+1. O que é Vue.js e 3 características?
+Vue.js é um framework JavaScript para criar interfaces de usuário.
+
+Reativo: A tela se atualiza sozinha quando os dados mudam.
+
+Baseado em Componentes: Permite criar partes reutilizáveis da interface.
+
+Fácil de aprender: Possui uma sintaxe simples e amigável.
+
+2. Importância e diferença do Node.js para o PHP?
+Node.js permite usar JavaScript no back-end e é ótimo para aplicações rápidas e em tempo real (como chats), pois não trava esperando por tarefas. O PHP é mais tradicional, executando uma tarefa por vez para cada usuário.
+
+3. O que são APIs RESTful e suas vantagens?
+São um padrão para sistemas se comunicarem pela internet usando comandos HTTP.
+
+Vantagens: Permitem que o front-end e o back-end sejam desenvolvidos separadamente e que diferentes tipos de aplicativos (web, mobile) usem o mesmo back-end.
+
+4. Qual a função do npm?
+npm (Node Package Manager) é um "gerenciador de pacotes" que instala e administra as bibliotecas e ferramentas (dependências) que um projeto Node.js precisa para funcionar, usando o arquivo package.json.
+
+5. Diferença entre GET, POST, PUT e DELETE?
+
+GET: Pega dados.
+
+POST: Cria novos dados.
+
+PUT: Atualiza dados existentes.
+
+DELETE: Apaga dados.
+
+6. O que é o Vue CLI?
+É uma ferramenta de linha de comando que cria e gerencia projetos Vue.js de forma rápida, já com uma estrutura e configurações prontas.
+
+7. Propósito do formato JSON em APIs?
+JSON é um formato de texto leve para trocar dados entre o cliente e o servidor. É popular porque é simples para humanos lerem e para máquinas (especialmente JavaScript) processarem.
+
+8. Vantagens do Vue.js sobre o jQuery?
+Com Vue.js, a interface do usuário se atualiza automaticamente quando os dados mudam (reatividade). Com jQuery, você precisa escrever código manualmente para fazer cada atualização no HTML.
+
+9. Quando PHP seria mais indicado que Node.js?
+
+Em projetos com orçamento baixo que usam hospedagem compartilhada (ex: sites em WordPress).
+
+Em tarefas que exigem muito processamento pesado da CPU, como cálculos complexos.
+
+10. Relação entre Vue.js e o DOM reativo?
+Vue.js usa um "DOM Virtual" (uma cópia em memória) para calcular a forma mais eficiente de atualizar a tela. Isso evita manipulações lentas no DOM real, melhorando a performance.
+
+11. Importância de separar o front-end do back-end?
+Permite que equipes diferentes trabalhem ao mesmo tempo e que o mesmo back-end seja usado por múltiplos aplicativos (web, mobile, etc.), facilitando a manutenção.
+
+12. Diferença entre npm install e npm install -g?
+
+npm install instala pacotes para um projeto específico (local).
+
+npm install -g instala ferramentas para serem usadas em qualquer projeto no computador (global).
+
+13. Por que POST é usado para criar recursos?
+POST é usado para enviar um conjunto de dados para o servidor criar um novo item, sem que o cliente precise saber qual será o ID desse novo item. Exemplo: enviar os dados de um novo usuário para o endpoint /usuarios.
+
+14. O que é modularidade em APIs?
+É a prática de dividir a API em partes lógicas menores (ex: /usuarios, /produtos). Em projetos grandes, isso torna o sistema mais fácil de entender, manter e escalar.
+
+15. Papel do yarn e comparação com o npm?
+Yarn é um gerenciador de pacotes alternativo ao npm. Foi criado para ser mais rápido e seguro. Hoje, ambos são muito parecidos e a escolha é mais uma questão de preferência.

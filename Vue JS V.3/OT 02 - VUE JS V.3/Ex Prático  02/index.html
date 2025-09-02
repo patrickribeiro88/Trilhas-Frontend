@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Dinâmica</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Minha Lista</h1>
+        <ul>
+            <li v-for="(item, index) in lista" :key="index">
+                {{ item }}
+                <button @click="removerItem(index)">Remover</button>
+            </li>
+        </ul>
+        <input v-model="novoItem" placeholder="Adicionar item">
+        <button @click="adicionarItem">Adicionar</button>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    lista: ['Item 1', 'Item 2', 'Item 3'],
+                    novoItem: ''
+                }
+            },
+            methods: {
+                adicionarItem() {
+                    if (this.novoItem.trim() !== '') {
+                        this.lista.push(this.novoItem);
+                        this.novoItem = '';
+                    }
+                },
+                removerItem(index) {
+                    this.lista.splice(index, 1);
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+    
+</body>
+</html>

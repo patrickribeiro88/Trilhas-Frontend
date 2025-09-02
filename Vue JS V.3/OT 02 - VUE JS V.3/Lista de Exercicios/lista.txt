@@ -1,0 +1,69 @@
+1. Explique o que é o jsFiddle e qual a sua utilidade no desenvolvimento com Vue.js.
+O jsFiddle é um "playground" online que permite escrever e testar códigos HTML, CSS e JavaScript diretamente no navegador. Para o Vue.js, ele é útil para criar protótipos rápidos, testar pequenos trechos de código e compartilhar exemplos funcionais sem precisar configurar um ambiente de desenvolvimento local.
+
+2. Descreva o processo para configurar o Vue.js no jsFiddle.
+
+Acesse o site jsfiddle.net.
+
+Na seção de JavaScript, clique na engrenagem de configurações.
+
+No campo "Frameworks & Extensions", procure e selecione a versão mais recente do "Vue". O jsFiddle incluirá a biblioteca automaticamente no seu projeto.
+
+3. O que é o "Hello World" no Vue.js e qual a sua importância?
+É o primeiro passo tradicional ao aprender uma nova tecnologia, onde se cria a aplicação mais simples possível para exibir a mensagem "Hello, World!". No Vue.js, isso demonstra a conexão básica entre os dados (JavaScript) e a visualização (HTML), servindo como a base fundamental para entender o framework.
+
+4. Defina o conceito de two-way data binding no Vue.js.
+Two-way data binding (ligação de dados bidirecional) é a sincronização automática entre os dados da aplicação (no JavaScript) e os elementos de um formulário (no HTML). Quando o usuário digita algo em um campo de texto, a variável correspondente no código é atualizada instantaneamente, e vice-versa. Isso é feito com a diretiva v-model.
+
+5. Qual a principal função do v-for no Vue.js? Dê um exemplo.
+A função do v-for é renderizar uma lista de itens de forma dinâmica, repetindo um bloco de HTML para cada item em um array ou objeto.
+
+Exemplo: É usado para exibir uma lista de produtos, tarefas ou comentários a partir de um array de dados.
+
+6. Explique o propósito da diretiva v-bind:key ao trabalhar com listas.
+Ao usar o v-for para criar listas, o :key (abreviação de v-bind:key) atribui uma identificação única a cada item da lista. Isso ajuda o Vue a rastrear cada item de forma eficiente, melhorando a performance ao adicionar, remover ou reordenar elementos, e evitando comportamentos inesperados na renderização.
+
+7. O que é a reatividade no Vue.js?
+Reatividade é o sistema que atualiza a interface do usuário (HTML) automaticamente sempre que os dados (no JavaScript) são alterados. O Vue "observa" os dados e, quando um valor muda, ele recalcula e renderiza apenas as partes da tela que dependem daquele valor, simplificando o desenvolvimento.
+
+8. Quais as vantagens do ciclo de vida dos componentes no Vue.js? Cite dois hooks.
+O ciclo de vida permite executar código em momentos específicos da existência de um componente (criação, montagem, atualização, destruição). Isso é útil para, por exemplo, buscar dados de uma API ou limpar recursos.
+
+created: Executado quando a instância do componente é criada. Ideal para inicializar dados.
+
+mounted: Executado depois que o componente é inserido no DOM. Ideal para interagir com elementos da tela.
+
+9. Diferencie os métodos push e splice ao manipular arrays.
+
+push: Adiciona um ou mais elementos ao final de um array.
+
+splice: Permite adicionar, remover ou substituir elementos em qualquer posição de um array.
+O Vue detecta essas alterações automaticamente porque ele "envolve" esses métodos para que acionem seu sistema de reatividade.
+
+10. O que é o método Vue.set e quando ele é necessário?
+O Vue.set (ou this.$set dentro de um componente) é usado para adicionar uma nova propriedade a um objeto que já é reativo, garantindo que essa nova propriedade também se torne reativa. Ele é necessário porque o Vue não consegue detectar a adição de propriedades que não existiam quando o objeto foi criado inicialmente.
+
+11. Explique o uso dos modificadores de evento .prevent e .stop.
+
+.prevent: Impede o comportamento padrão de um evento. Equivale a chamar event.preventDefault() em JavaScript. Muito usado em envios de formulário (<form @submit.prevent="...">).
+
+.stop: Impede que o evento se propague para elementos "pais". Equivale a chamar event.stopPropagation().
+
+12. Descreva como os modificadores de teclas, como .enter e .esc, são usados.
+Eles permitem que um método seja chamado apenas quando uma tecla específica é pressionada.
+
+Exemplo prático: Em um campo de busca, usar <input @keyup.enter="pesquisar"> faz com que o método pesquisar seja executado somente quando o usuário pressionar a tecla "Enter".
+
+13. Quais são as diferenças entre checkboxes, radios e selects em formulários dinâmicos?
+
+Checkboxes: Permitem a seleção de múltiplos valores independentes, geralmente ligados a um array no v-model.
+
+Radios: Permitem a seleção de apenas uma opção dentro de um grupo, ligados a uma única variável no v-model.
+
+Selects: Criam uma lista de opções (dropdown), onde se pode escolher uma (ligado a uma variável) ou múltiplas opções (ligado a um array).
+
+14. Por que é importante usar o atributo v-model ao criar formulários?
+O v-model simplifica imensamente o trabalho com formulários ao criar uma ligação de dados bidirecional (two-way data binding). Ele conecta o valor de um campo (input, select, etc.) a uma variável no estado do componente, mantendo ambos sincronizados automaticamente sem a necessidade de escrever código manual para isso.
+
+15. Explique como o Vue.js atualiza o DOM de maneira eficiente ao usar o Virtual DOM.
+O Vue mantém uma representação do DOM em memória, chamada de Virtual DOM. Quando os dados mudam, ele cria uma nova versão do Virtual DOM e a compara com a versão antiga. Em seguida, ele calcula a forma mais eficiente de aplicar apenas as diferenças necessárias ao DOM real do navegador. Isso é vantajoso porque manipular o DOM real é uma operação lenta, e o Virtual DOM minimiza essas manipulações, resultando em uma aplicação muito mais rápida e com melhor performance.

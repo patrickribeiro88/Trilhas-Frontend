@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hooks de ciclo de vida</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>Exemplo de ciclo de Vida</h2>
+        <p>Mensagem: {{ mensagem }}</p>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    mensagem: 'Olá, Vue.js!'
+                }
+            },
+            beforeCreate() {
+                console.log('beforeCreate: O componente está sendo criado.');
+            },
+            created() {
+                console.log('created: O componente foi criado.');
+            },
+            beforeMount() {
+                console.log('beforeMount: O componente está prestes a ser montado no DOM.');
+            },
+            mounted() {
+                console.log('mounted: O componente foi montado no DOM.');
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate: O componente está prestes a ser atualizado.');
+            },
+            updated() {
+                console.log('updated: O componente foi atualizado.');
+            },
+            beforeUnmount() {
+                console.log('beforeUnmount: O componente está prestes a ser desmontado.');
+            },
+            unmounted() {
+                console.log('unmounted: O componente foi desmontado.');
+            }
+        });
+        app.mount('#app');
+    </script>
+
+    
+</body>
+</html>

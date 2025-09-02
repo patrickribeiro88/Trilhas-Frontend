@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+</head>
+
+<body>
+    <div app="app">
+        <form @submit.prevent="cadastar">
+            <label>Nome:</label>
+            <input v-model="nome" type="text">
+
+            <label>Gênero:</label>
+            <input type="radio" value="Masculino" v-model="genero">Masculino
+            <input type="radio" value="Feminino" v-model="genero">Feminino
+
+            <label>Interesses:</label>
+            <input type="checkbox" value="Esportes" v-model="interesses">Esportes
+            <input type="checkbox" value="Música" v-model="interesses">Música
+
+            <label>Cidade:</label>
+            <select v-model="cidade">
+                <option>São Paulo</option>
+                <option>Rio de Janeiro</option>
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p>Dados: {{ nome }}, {{ genero }}, {{ interesses}}, {{ cidade }}</p>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    nome: '',
+                    genero: '',
+                    interesses: [],
+                    cidade: ''
+                }
+            },
+            methods: {
+                cadastar() {
+                    alert(`Usuário cadastrado:
+                        ${this.nome},
+                        ${this.genero},
+                        ${this.interesses.join(', ')},
+                        ${this.cidade}`);
+                }
+            }
+        });
+        app.mount('[app="app"]');
+    </script>
+
+</body>
+
+</html>

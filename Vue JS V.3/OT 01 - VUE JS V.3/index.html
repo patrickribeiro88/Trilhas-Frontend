@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrle de Notas</title>
+</head>
+<body>
+    <div id="app">
+        <h2>Controle de Notas</h2>
+        <ul>
+            <li v-for="nota in notas" :key="nota">{{ nota }}</li>
+        </ul>
+        <input v-model="novaNota" placeholder="Adicionar nota">
+        <button @click="adicionarNota">Adicionar</button>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                notas: ['Nota 1', 'Nota 2'],
+                novaNota: ''
+            },
+            methods: {
+                adicionarNota() {
+                    if (this.novaNota) {
+                        this.notas.push(this.novaNota);
+                        this.novaNota = '';
+                    }
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
